@@ -1,0 +1,21 @@
+{% extends 'home.jinja' %}
+{% block content %}
+<h2>Sign In</h2>
+    <form action="" method="post">
+         {{  signin_form.hidden_tag() }}
+        <p>
+            {{ signin_form.name.label }}<br>
+            {{ signin_form.name(size=32) }}
+        </p>
+        <p>
+            {{ signin_form.password.label }}<br>
+            {{ signin_form.password(size=32) }}
+        </p>
+        <p>{{ signin_form.remember_me() }}  {{ signin_form.remember_me.label }}</p>
+        <p>
+            {{ signin_form.submit(class='btn btn-primary') }}
+
+        </p>
+
+    </form>
+{% endblock %}
