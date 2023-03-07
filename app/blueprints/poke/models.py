@@ -52,7 +52,7 @@ class Pokemon(db.Model):
     description = db.Column(db.String(200))
     type_ = db.Column(db.String(40))
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
-    
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     
     
     def __repr__(self):
