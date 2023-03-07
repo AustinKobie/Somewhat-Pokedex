@@ -18,7 +18,7 @@ def post():
     form = PostForms()
     if form.validate_on_submit():
         body = form.postfield.data
-        p = Pokemon(description=body, user_id=current_user.id)
+        p = Pokemon(postblock=body, user_id=current_user.id)
         p.commit()
         return redirect(url_for('poke.user', name=current_user.name))
-    return render_template('pokemon.jinja', form=form)
+    return render_template('pokemon.jinja', post_form=form)
