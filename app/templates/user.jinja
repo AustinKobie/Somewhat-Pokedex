@@ -1,0 +1,9 @@
+{% extends 'home.jinja' %}
+
+{% block content %}
+<h2>{{ user.name }} Profile</h2>
+
+{% for post in posts %}
+    <p>{{post.author.name}} says: {{post.description}}</p>
+{% endfor %}
+{% endblock %}

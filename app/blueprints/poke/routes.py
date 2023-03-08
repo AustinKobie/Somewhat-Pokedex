@@ -17,7 +17,7 @@ def user(name):
 def post():
     form = PostForms()
     if form.validate_on_submit():
-        body = form.postblock.data
+        body = form.description.data
         p = Pokemon(description=body, user_id=current_user.id)
         p.commit()
         return redirect(url_for('poke.user', name=current_user.name))

@@ -1,15 +1,36 @@
 {% extends 'home.jinja' %}
 {% block content %}
-<h2>Pokemon</h2>
+<h2>Catch That Pokemon!</h2>
     <form action="" method="post">
-         {{  post_form.hidden_tag() }}
+        {{  post_form.hidden_tag() }}
         <p>
-            {{ post_form.postblock.label }}
-            {{ post_form.postblock(size=32) }}
+        {{ post_form.name.label }}<br>
+        {{ post_form.name(size=32) }}
+        {% for error in post_form.name.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{ post_form.type_.label }}<br>
+        {{ post_form.type_(size=32) }}
+        {% for error in post_form.type_.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{ post_form.weakness.label }}<br>
+        {{ post_form.weakness(size=32) }}
+        {% for error in post_form.weakness.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{ post_form.description.label }}<br>
+        {{ post_form.description(size=32) }}
+        {% for error in post_form.description.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
         </p>
         <p>{{ post_form.submit(class='btn btn-primary') }}</p>
-
     </form>
-
-
 {% endblock %}

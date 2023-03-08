@@ -18,7 +18,10 @@ class SignInForms(FlaskForm):
     
     
 class PostForms(FlaskForm):
-    postblock = StringField('Post', validators=[DataRequired()])
-    submit = SubmitField('Post')
+    name = StringField('Name:', validators=[DataRequired()])
+    type_ = StringField('Type:', validators=[DataRequired()])
+    weakness = StringField('Weakness:', validators=[DataRequired()])
+    description = StringField('Description:', validators=[DataRequired()])
+    submit = SubmitField('Catch Pokemon')
     
     
