@@ -7,9 +7,11 @@ from flask_login import login_required, current_user
 @poke_bp.route('/user/<name>')
 def user(name):
     user_match = User.query.filter_by(name=name).first()
+    
     if not user_match:
         redirect('/')
-    posts = user_match.pokemon
+    posts = Pokemon.query.all()
+    
     return render_template('user.jinja', user=user_match, posts=posts)
 
 @poke_bp.route('/pokemon', methods=['GET', 'POST'])
